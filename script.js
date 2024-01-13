@@ -7,21 +7,66 @@ let arr = [
 ];
 
 function PrintDeveloperbyMap() {
-  //Write your code here , just console.log
+  let developers = arr
+    .filter(employee => employee.profession === "developer")
+    .map(developer => {
+      return {
+        id: developer.id,
+        name: developer.name,
+        age: developer.age,
+        profession: developer.profession,
+      };
+    });
+  developers.forEach(developer => {
+    console.log(developer);
+  });
 }
+PrintDeveloperbyMap();
 
 function PrintDeveloperbyForEach() {
-  //Write your code here , just console.log
+  arr.forEach(employee => {
+    if (employee.profession === "developer") {
+      console.log({
+        id: employee.id,
+        name: employee.name,
+        age: employee.age,
+        profession: employee.profession,
+      });
+    }
+  });
 }
+
+PrintDeveloperbyForEach();
 
 function addData() {
-  //Write your code here, just console.log
+  let newEmployee = { id: 4, name: "susan", age: "20", profession: "intern" };
+  arr.push(newEmployee);
+  console.log(arr);
 }
+addData();
 
 function removeAdmin() {
-  //Write your code here, just console.log
+  arr = arr.filter(employee => employee.profession !== "admin");
+
+  console.log(arr);
 }
 
-function concatenateArray() {
-  //Write your code here, just console.log
+removeAdmin();
+
+function ConcatinateArray() {
+
+  let newArray = [
+    { id: 4, name: "susan", age: "22", profession: "designer" },
+    { id: 5, name: "mike", age: "25", profession: "developer" },
+    { id: 6, name: "emma", age: "21", profession: "admin" },
+  ];
+
+
+  arr = arr.concat(newArray);
+
+
+  console.log(arr);
 }
+
+
+ConcatinateArray();
